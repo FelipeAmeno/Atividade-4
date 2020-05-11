@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user'
 import { UserService } from '../services/user.service'
 
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -17,7 +18,7 @@ export class UserComponent implements OnInit {
   constructor(private user: UserService) { }
 
   async ngOnInit() {
-    this.RespAsync = await this.user.Get;
+    this.RespAsync = await this.user.Get();
     this.usuarioArray = this.RespAsync;
   }
 

@@ -6,12 +6,14 @@ import { async } from '@angular/core/testing'
   providedIn: 'root'
 })
 export class UserService {
-  private JsonArquivo = 'https://jsonplaceholder.typicode.com/user';
+  private JsonArquivo = 'https://jsonplaceholder.typicode.com/comments';
   constructor(private http: HttpClient) { }
 
   async Get() {
     let resp = await this.http.get(this.JsonArquivo).toPromise();
+    console.log(resp);
     return resp;
+
 
   }
 

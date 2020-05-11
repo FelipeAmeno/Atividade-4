@@ -6,7 +6,7 @@ import { async } from '@angular/core/testing'
   providedIn: 'root'
 })
 export class PostService {
-  private JsonArquivo = 'https://jsonplaceholder.typicode.com/post';
+  private JsonArquivo = 'https://jsonplaceholder.typicode.com/posts';
   constructor(private http: HttpClient) { }
 
   async Get() {

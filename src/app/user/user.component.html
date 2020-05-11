@@ -1,1 +1,40 @@
-<p>user works!</p>
+<div class="container">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">UserName</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Endereço:Rua</th>
+            <th scope="col">Endereço:Suite</th>
+            <th scope="col">Endereço:Cidade</th>
+            <th scope="col">Endereço:ZipCode</th>
+            <th scope="col">Endereço:Geo:lat</th>
+            <th scope="col">Endereço:Geo:lng</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">WebSite</th>
+            <th scope="col">Compania:Name</th>
+            <th scope="col">Compania:CatchPhrase</th>
+            <th scope="col">Compania:Bs</th>
+        </thead>
+        <tbody *ngFor="let usuario of usuarioArray">
+            <tr>
+                <th scope="row">{{usuario.id}}</th>
+                <td>{{usuario.name}}</td>
+                <td>{{usuario.username}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.address.street}}</td>
+                <td>{{usuario.address.suite}}</td>
+                <td>{{usuario.address.city}}</td>
+                <td>{{usuario.address.zipcode}}</td>
+                <td>{{usuario.address.geo?.lat}}</td>
+                <td>{{usuario.address.geo?.lng}}</td>
+                <td>{{usuario.phone}}</td>
+                <td>{{usuario.website}}</td>
+                <td>{{usuario.company.name}}</td>
+                <td>{{usuario.company.catchPhrase}}</td>
+                <td>{{usuario.company.bs}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

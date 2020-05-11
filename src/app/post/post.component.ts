@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/Post';
 import { PostService } from '../services/post.service';
+import { UserService } from '../services/user.service';
+import { User } from '../models/User'
 
 @Component({
   selector: 'app-post',
@@ -10,20 +12,43 @@ import { PostService } from '../services/post.service';
 })
 export class PostComponent implements OnInit {
 
-  Post: Post;
+  Post: Post = {} as Post;
   PostArray: Post[];
   RespAsync: any;
+  RespUser: any;
+  UserArray: User[];
+  receber
 
 
-  constructor(private post: PostService) { }
+
+
+
+  constructor(private service: PostService, private useServ: UserService) {
+
+  }
+
 
   async ngOnInit() {
-    this.RespAsync = await this.post.Get();
+    this.RespAsync = await this.service.Get();
     this.PostArray = this.RespAsync;
+
+    this.RespUser = await this.useServ.Get();
+    this.UserArray = this.RespUser;
+
   }
 
-  onSubmit() {
 
+  async onSubmit(form) {
+    await this.service.Post(form.value);
   }
 
+  exibirComentario(post) {
+
+    this.PostArray.forEach(postagem => {
+      if (postagem.id == post.id) {
+        postagem.exibirComentario = true;
+      }
+    })
+
+  }
 }

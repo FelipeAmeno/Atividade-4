@@ -1,1 +1,11 @@
-<p>comment works!</p>
+<div *ngFor=" let comment of ComentarioArray ">
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Comentarios</div>
+        <div class="card-body">
+            <h5 class="card-title">{{comment.name}}</h5>
+            <p class="card-text">{{comment.email}}</p>
+            <p class="card-text">{{comment.body}}</p>
+        </div>
+    </div>
+
+</div>

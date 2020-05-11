@@ -1,1 +1,46 @@
-<p>post works!</p>
+<div class="container">
+    <form #forms="ngForm" (ngSubmit)="onSubmit(forms)">
+        <div class="form-group">
+            <label for="userId">UserId</label>
+            <select class="form-control" name="userId" id="userId">
+            <option></option>
+        </select>
+        </div>
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" name="title" id="title" type="text">
+        </div>
+
+        <div class="form-group">
+            <label for="body">body</label>
+            <input class="form-control" name="body" id="body" type="text">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <hr>
+    <div *ngFor="let postagem of PostArray">
+
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Post</div>
+            <div class="card-body">
+                <h5 class="card-title">{{postagem.title}}</h5>
+                <p class="card-text">{{postagem.body}}</p>
+                <button type="button" class="btn btn-outline-light" (click)="exibirComentario(postagem)">Exibir
+                    Comentário</button>
+
+            </div>
+
+
+
+        </div>
+
+        <div *ngIf="postagem.exibirComentario !=false && postagem.exibirComentario !=null">
+            <app-comment [postInput]="postagem.id"></app-comment>
+        </div>
+        <hr style="border: solid;">
+
+    </div>
+</div>
